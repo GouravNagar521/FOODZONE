@@ -1,0 +1,248 @@
+{% extends 'dashboard_app/base.html' %}
+
+{% block title %}FoodZone | Admin Dashboard{% endblock %}
+
+{% block extra_css %}
+<style>
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.topbar h2 { font-weight: 700; }
+
+.admin {
+    background: white;
+    padding: 12px 18px;
+    border-radius: 10px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px rgba(0,0,0,.04);
+}
+
+.stat-card h6 {
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.stat-card h2 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.stat-icon {
+    font-size: 25px;
+    color: #f28c28;
+    margin-bottom: 15px;
+}
+
+.section {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 3px 15px rgba(0,0,0,.04);
+}
+
+.section h4 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.table th {
+    color: #777;
+    font-size: 13px;
+}
+
+@media(max-width:1000px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media(max-width:650px) {
+    .stats { grid-template-columns: 1fr; }
+    .topbar { align-items: flex-start; gap: 12px; }
+}
+</style>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="topbar">
+    <div>
+        <h2>Dashboard Overview</h2>
+        <p class="text-muted">Welcome to FoodZone Admin Panel</p>
+    </div>
+
+    <div class="admin">
+        <i class="fas fa-user-circle"></i>
+        &nbsp; {{ request.user.username }}
+    </div>
+</div>
+
+
+<div class="stats">
+
+    <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-indian-rupee-sign"></i></div>
+        <h6>Total Revenue</h6>
+        <h2>₹{{ total_revenue|floatformat:2 }}</h2>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+        <h6>Delivered Orders</h6>
+        <h2>{{ delivered_orders }}</h2>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-clock"></i></div>
+        <h6>Pending Orders</h6>
+        <h2>{{ pending_orders }}</h2>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+        <h6>Average Order Value</h6>
+        <h2>₹{{ average_order_value|floatformat:2 }}</h2>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-utensils"></i></div>
+        <h6>Total Food Items</h6>
+        <h2>{{ total_food }}</h2>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-shopping-cart"></i></div>
+        <h6>Total Orders</h6>
+        <h2>{{ total_orders }}</h2>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
+        <h6>Total Bookings</h6>
+        <h2>{{ total_bookings }}</h2>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-envelope"></i></div>
+        <h6>Total Messages</h6>
+        <h2>{{ total_messages }}</h2>
+    </div>
+
+</div>
+
+
+<div class="section">
+    <h4><i class="fas fa-shopping-bag"></i> Recent Orders</h4>
+
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Customer</th>
+                    <th>Phone</th>
+                    <th>Total Amount</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for order in recent_orders %}
+                <tr>
+                    <td>#{{ order.id }}</td>
+                    <td>{{ order.customer_name }}</td>
+                    <td>{{ order.phone }}</td>
+                    <td>₹{{ order.total_amount }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4" class="text-center">No orders found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="section">
+    <h4><i class="fas fa-chart-line"></i> Monthly Sales Report</h4>
+
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Month</th>
+                    <th>Total Orders</th>
+                    <th>Revenue</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for sale in monthly_sales %}
+                <tr>
+                    <td>{{ sale.month|date:"F Y" }}</td>
+                    <td>{{ sale.orders }}</td>
+                    <td>₹{{ sale.revenue|floatformat:2 }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="3" class="text-center">No sales data available.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="section">
+    <h4><i class="fas fa-calendar-alt"></i> Recent Table Bookings</h4>
+
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Guests</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for booking in recent_bookings %}
+                <tr>
+                    <td>{{ booking.name }}</td>
+                    <td>{{ booking.phone }}</td>
+                    <td>{{ booking.date }}</td>
+                    <td>{{ booking.time }}</td>
+                    <td>{{ booking.guests }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5" class="text-center">No bookings found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,368 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodZone - Checkout</title>
+
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        body {
+            background: #111;
+            color: #fff;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .checkout-navbar {
+            background: #191919;
+            padding: 20px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .brand {
+            color: white;
+            font-size: 27px;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .brand span {
+            color: #F28C28;
+        }
+
+        .back-link {
+            color: #F28C28;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .checkout-heading {
+            padding: 45px 0 30px;
+        }
+
+        .checkout-heading p {
+            color: #F28C28;
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .checkout-heading h1 {
+            font-size: 38px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .checkout-card {
+            background: #202020;
+            border: 1px solid #383838;
+            border-radius: 14px;
+            padding: 28px;
+            margin-bottom: 25px;
+        }
+
+        .checkout-card h3 {
+            font-size: 21px;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .checkout-card h3 i {
+            color: #F28C28;
+            margin-right: 10px;
+        }
+
+        .form-label {
+            color: #ddd;
+            font-weight: 600;
+            margin-bottom: 9px;
+        }
+
+        .form-control {
+            background: #151515;
+            border: 1px solid #444;
+            color: white;
+            border-radius: 8px;
+            padding: 13px 15px;
+        }
+
+        .form-control:focus {
+            background: #151515;
+            color: white;
+            border-color: #F28C28;
+            box-shadow: 0 0 0 3px rgba(242, 140, 40, .15);
+        }
+
+        .form-control::placeholder {
+            color: #888;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 13px 0;
+            border-bottom: 1px solid #383838;
+            color: #ccc;
+        }
+
+        .summary-item strong {
+            color: white;
+            white-space: nowrap;
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 22px;
+            margin-top: 10px;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .summary-total span:last-child {
+            color: #F28C28;
+        }
+
+        .place-order-btn {
+            width: 100%;
+            border: none;
+            border-radius: 9px;
+            background: #F28C28;
+            color: #111;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 800;
+            margin-top: 25px;
+            transition: .3s;
+        }
+
+        .place-order-btn:hover {
+            background: #ffad52;
+            transform: translateY(-2px);
+        }
+
+        .secure-note {
+            color: #aaa;
+            font-size: 12px;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .secure-note i {
+            color: #F28C28;
+        }
+
+        .error-box {
+            background: #3b2020;
+            border: 1px solid #a94442;
+            color: #ffaaaa;
+            border-radius: 8px;
+            padding: 13px;
+            margin-bottom: 20px;
+        }
+
+        .back-cart {
+            display: inline-block;
+            color: #F28C28;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        @media(max-width: 600px) {
+            .checkout-heading h1 {
+                font-size: 29px;
+            }
+
+            .checkout-card {
+                padding: 20px 16px;
+            }
+
+            .brand {
+                font-size: 22px;
+            }
+
+            .back-link {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="checkout-navbar">
+    <div class="container d-flex justify-content-between align-items-center">
+        <a href="/" class="brand">
+            FOOD<span>ZONE</span>
+        </a>
+
+        <a href="{% url 'cart' %}" class="back-link">
+            <i class="fas fa-arrow-left me-2"></i> Back to Cart
+        </a>
+    </div>
+</nav>
+
+<div class="container pb-5">
+
+    <!-- Heading -->
+    <div class="checkout-heading text-center">
+        <p>ALMOST THERE!</p>
+        <h1>Complete Your Order</h1>
+        <span class="text-white-50">
+            Just a few details and your delicious food is on its way.
+        </span>
+    </div>
+
+    <div class="row g-4">
+
+        <!-- Delivery Details -->
+        <div class="col-lg-7">
+
+            <div class="checkout-card">
+
+                <h3>
+                    <i class="fas fa-map-marker-alt"></i>
+                    Delivery Details
+                </h3>
+
+                {% if error %}
+                <div class="error-box">
+                    <i class="fas fa-exclamation-circle me-2"></i>
+                    {{ error }}
+                </div>
+                {% endif %}
+
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <div class="mb-4">
+                        <label class="form-label">Full Name</label>
+                        <input
+                            type="text"
+                            name="customer_name"
+                            class="form-control"
+                            placeholder="Enter your full name"
+                            required
+                        >
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">Mobile Number</label>
+                        <input
+                            type="tel"
+                            name="phone"
+                            class="form-control"
+                            placeholder="Enter 10-digit mobile number"
+                            maxlength="10"
+                            pattern="[0-9]{10}"
+                            inputmode="numeric"
+                            required
+                        >
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Complete Delivery Address</label>
+                        <textarea
+                            name="address"
+                            class="form-control"
+                            rows="4"
+                            placeholder="House number, street, area, city and PIN code"
+                            required
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="place-order-btn">
+                        PLACE MY ORDER
+                        <i class="fas fa-arrow-right ms-2"></i>
+                    </button>
+
+                    <p class="secure-note">
+                        <i class="fas fa-lock me-1"></i>
+                        Your delivery details are used to process your order.
+                    </p>
+
+                </form>
+
+            </div>
+
+        </div>
+
+        <!-- Order Summary -->
+        <div class="col-lg-5">
+
+            <div class="checkout-card">
+
+                <h3>
+                    <i class="fas fa-receipt"></i>
+                    Your Order Summary
+                </h3>
+
+                {% for cart_item in cart_items %}
+
+               <div class="summary-item">
+    <div>
+        <strong>{{ cart_item.item.name }}</strong>
+
+        <div class="small text-white-50">
+            Quantity: {{ cart_item.quantity }}
+        </div>
+
+        {% for option in cart_item.selected_customizations %}
+            <div class="small text-white-50">
+                {{ option.group_name }}: {{ option.name }}
+                (+₹{{ option.additional_price }})
+            </div>
+        {% endfor %}
+
+        <div class="small text-warning">
+            ₹{{ cart_item.unit_price }} per item
+        </div>
+    </div>
+
+    <strong>₹{{ cart_item.total_price }}</strong>
+</div>
+
+                {% endfor %}
+
+                <div class="summary-total">
+                    <span>Grand Total</span>
+                    <span>₹{{ grand_total }}</span>
+                </div>
+
+                <div class="mt-4 text-white-50 small">
+                    <i class="fas fa-info-circle text-warning me-2"></i>
+                    Please verify your items and delivery details before placing your order.
+                </div>
+
+                <a href="{% url 'cart' %}" class="back-cart">
+                    <i class="fas fa-edit me-1"></i>
+                    Edit Your Cart
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<footer class="text-center py-4" style="background:#191919; color:#888;">
+    © {% now "Y" %} FoodZone. All Rights Reserved.
+</footer>
+
+</body>
+</html>

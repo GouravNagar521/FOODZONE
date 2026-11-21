@@ -1,0 +1,400 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>FoodZone-Restaurant Website </title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="keywords" content="FoodZone, Restaurant, Food, Online Food, Menu">
+    <meta name="description" content="FoodZone offers delicious food, fresh ingredients and a great dining experience.">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Oswald:wght@500;600;700&family=Pacifico&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+ {% include 'includes/navigation.html' %}
+<!-- FOODZONE HERO END -->
+
+   <!-- FOODZONE CATEGORIES START -->
+<section class="fz-categories">
+    <div class="fz-section-heading">
+        <p>WHAT ARE YOU CRAVING?</p>
+        <h2>EXPLORE OUR <span>CATEGORIES</span></h2>
+        <div class="fz-heading-line"></div>
+    </div>
+
+    <div class="fz-category-grid">
+        <a href="/menu/" class="fz-category-card">
+            <img src="{% static 'img/classic_burger.jpg' %}" alt="Burgers">
+            <div class="fz-category-overlay">
+                <h3>Burgers</h3>
+                <span>Explore Menu →</span>
+            </div>
+        </a>
+
+        <a href="/menu/" class="fz-category-card">
+            <img src="{% static 'img/cheese_pizza.jpg' %}" alt="Pizza">
+            <div class="fz-category-overlay">
+                <h3>Pizza</h3>
+                <span>Explore Menu →</span>
+            </div>
+        </a>
+
+        <a href="/menu/" class="fz-category-card">
+            <img src="{% static 'img/paneer_butter_masala.jpg' %}" alt="Indian Food">
+            <div class="fz-category-overlay">
+                <h3>Indian Food</h3>
+                <span>Explore Menu →</span>
+            </div>
+        </a>
+
+        <a href="/menu/" class="fz-category-card">
+            <img src="{% static 'img/mint_mojito.jpg' %}" alt="Drinks">
+            <div class="fz-category-overlay">
+                <h3>Drinks</h3>
+                <span>Explore Menu →</span>
+            </div>
+        </a>
+    </div>
+</section>
+<!-- FOODZONE CATEGORIES END -->
+
+
+    
+  <!-- FOODZONE ABOUT START -->
+
+<section class="fz-about">
+    <div class="fz-about-image">
+        <img src="{% static 'img/about.jpg' %}" alt="FoodZone delicious food">
+        <div class="fz-about-badge">
+            <strong>FOODZONE</strong>
+            <span>Made with passion</span>
+        </div>
+    </div>
+
+    <div class="fz-about-content">
+        <p class="fz-about-label">OUR STORY</p>
+
+        <h2>WE SERVE THE FOOD<br>
+            <span>YOU LOVE.</span>
+        </h2>
+
+        <p>
+            Welcome to FoodZone! We bring together delicious flavours,
+            quality ingredients and a variety of meals to make every
+            food experience enjoyable.
+        </p>
+
+        <p>
+            From juicy burgers and cheesy pizzas to flavourful Indian
+            dishes and refreshing beverages, explore something tasty
+            for every craving.
+        </p>
+
+        <a href="/menu/" class="fz-btn-primary">Explore Our Menu →</a>
+    </div>
+</section>
+
+<!-- FOODZONE ABOUT END -->
+
+   <!-- FOODZONE WHY CHOOSE US START -->
+
+<section class="fz-why">
+    <div class="fz-section-heading">
+        <p>WHY FOODZONE?</p>
+        <h2>MORE THAN JUST <span>FOOD</span></h2>
+        <div class="fz-heading-line"></div>
+    </div>
+
+    <div class="fz-why-grid">
+
+        <div class="fz-why-card">
+            <div class="fz-why-icon">
+                <i class="fas fa-utensils"></i>
+            </div>
+            <h3>Delicious Food</h3>
+            <p>A variety of tasty meals to satisfy your cravings.</p>
+        </div>
+
+        <div class="fz-why-card">
+            <div class="fz-why-icon">
+                <i class="fas fa-leaf"></i>
+            </div>
+            <h3>Quality Ingredients</h3>
+            <p>Enjoy flavourful dishes made with carefully selected ingredients.</p>
+        </div>
+
+        <div class="fz-why-card">
+            <div class="fz-why-icon">
+                <i class="fas fa-shopping-bag"></i>
+            </div>
+            <h3>Easy Ordering</h3>
+            <p>Browse the menu, add your favourites and place your order online.</p>
+        </div>
+
+        <div class="fz-why-card">
+            <div class="fz-why-icon">
+                <i class="fas fa-heart"></i>
+            </div>
+            <h3>Made for Food Lovers</h3>
+            <p>From quick bites to hearty meals, there's something to enjoy.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOODZONE WHY CHOOSE US END -->
+
+
+  <!-- FOODZONE BEST SELLERS START -->
+
+<section class="fz-products">
+    <div class="fz-section-heading">
+        <p>OUR FAVOURITES</p>
+        <h2>POPULAR <span>DISHES</span></h2>
+        <div class="fz-heading-line"></div>
+    </div>
+
+    <div class="fz-product-grid">
+        {% for item in food_items %}
+        <div class="fz-product-card">
+
+            <div class="fz-product-image">
+                {% if item.image %}
+                    <img src="{% static item.image %}" alt="{{ item.name }}">
+                {% endif %}
+            </div>
+
+            <div class="fz-product-info">
+                <h3>{{ item.name }}</h3>
+                <p>{{ item.description|truncatewords:12 }}</p>
+
+                <div class="fz-product-bottom">
+                    <strong>₹{{ item.price }}</strong>
+
+                 <form class="home-add-to-cart-form"
+      method="post"
+      action="{% url 'add_to_cart' item.id %}">
+    {% csrf_token %}
+    <button type="submit" class="home-add-btn">ADD +</button>
+</form>
+                </div>
+            </div>
+
+        </div>
+        {% empty %}
+        <p class="text-white text-center">
+            No food items available yet.
+        </p>
+        {% endfor %}
+    </div>
+
+    <div class="fz-view-menu">
+        <a href="/menu/" class="fz-btn-primary">View Full Menu →</a>
+    </div>
+</section>
+
+<!-- FOODZONE BEST SELLERS END -->
+
+
+   <!-- FOODZONE ORDER CTA START -->
+
+<section class="fz-order-cta">
+    <div class="fz-order-content">
+        <p>YOUR CRAVINGS, OUR PRIORITY</p>
+
+        <h2>HUNGRY? LET'S FIX THAT.</h2>
+
+        <span>
+            Explore our menu and find something delicious for your next meal.
+        </span>
+
+        <div class="fz-order-buttons">
+            <a href="/menu/" class="fz-btn-primary">
+                ORDER NOW →
+            </a>
+
+            <a href="{% url 'cart' %}" class="fz-btn-outline">
+                VIEW CART
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- FOODZONE ORDER CTA END -->
+   
+
+   <!-- FOODZONE SPECIAL OFFER START -->
+
+<section class="fz-special-offer">
+    <div class="fz-offer-content">
+        <p>FOODZONE SPECIAL</p>
+        <h2>GOOD FOOD.<br><span>GREAT DEALS.</span></h2>
+        <p>
+            Explore our delicious menu and discover your next favourite meal.
+        </p>
+        <a href="/menu/" class="fz-btn-primary">EXPLORE MENU →</a>
+    </div>
+</section>
+
+<!-- FOODZONE SPECIAL OFFER END -->
+
+   
+
+    <!-- Footer Start -->
+   <div class="container-fluid bg-img text-secondary" id="footer" style="margin-top: 90px">
+        <div class="container">
+            <div class="row gx-5">
+                <div class="col-lg-4 col-md-6 mb-lg-n5">
+                    <div class="d-flex flex-column align-items-center justify-content-center text-center h-100 bg-primary border-inner p-4">
+                      <a href="/" class="navbar-brand">
+                          <i class="fas fa-utensils fs-1 text-dark me-3"></i>
+                        </a><h1 class="m-0 text-uppercase text-white">
+                        <i class="fas fa-utensils fs-1 text-dark me-3"></i>FoodZone
+                        </h1>
+                        <p class="mt-3">FoodZone serves delicious meals prepared with fresh ingredients. Enjoy great food, friendly service and a memorable dining experience.</p>
+                </div>
+                </div>
+                <div class="col-lg-8 col-md-6">
+                    <div class="row gx-5">
+                        <div class="col-lg-4 col-md-12 pt-5 mb-5">
+                            <h4 class="text-primary text-uppercase mb-4">Get In Touch</h4>
+                            <div class="d-flex mb-2">
+                                <i class="bi bi-geo-alt text-primary me-2"></i>
+                                <p class="mb-0">123 Street, New York, USA</p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <i class="bi bi-envelope-open text-primary me-2"></i>
+                                <a href="mailto:nagarvegeta@gmail.com">nagarvegeta@gmail.com</a>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <i class="bi bi-telephone text-primary me-2"></i>
+                                <p class="mb-0">+91 9827355206</p>
+                            </div>
+                            <div class="d-flex mt-4">
+                                <a class="btn btn-lg btn-primary btn-lg-square border-inner rounded-0 me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                                <a class="btn btn-lg btn-primary btn-lg-square border-inner rounded-0 me-2" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
+                                <a class="btn btn-lg btn-primary btn-lg-square border-inner rounded-0 me-2" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
+                            <h4 class="text-primary text-uppercase mb-4">Quick Links</h4>
+                            <div class="d-flex flex-column justify-content-start">
+                                <a class="text-secondary mb-2" href="/"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
+                                <a class="text-secondary mb-2" href="/about/"><i class="bi bi-arrow-right text-primary me-2"></i>About Us</a>
+                                <a class="text-secondary mb-2" href="#services"><i class="bi bi-arrow-right text-primary me-2"></i>Our Services</a>
+                                <a class="text-secondary mb-2" href="#team"><i class="bi bi-arrow-right text-primary me-2"></i>Meet The Team</a>
+                                <a class="text-secondary" href="#footer"><i class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
+                            <h4 class="text-primary text-uppercase mb-4">Newsletter</h4>
+                          <p>Stay connected with FoodZone for updates about our menu, new dishes and special offers.</p>
+                            <form action="">
+                                <div class="input-group">
+                                    <input type="email" class="form-control border-white p-3" placeholder="Your Email" required>
+                                    <button class="btn btn-primary">Sign Up</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid text-secondary py-4" style="background: #111111;">
+    <div class="container text-center">
+        <p class="mb-0">
+            &copy; <a class="text-white border-bottom" href="/">FoodZone</a>.
+            All Rights Reserved.
+            Designed by
+            <a class="text-white border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+        </p>
+    </div>
+</div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary border-inner py-3 fs-4 back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+   <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    document.querySelectorAll(".home-add-to-cart-form").forEach(form => {
+
+        form.addEventListener("submit", async function(e) {
+            e.preventDefault();
+
+            const button = form.querySelector(".home-add-btn");
+            const originalText = button.innerText;
+
+            button.disabled = true;
+            button.innerText = "ADDING...";
+
+            try {
+                const response = await fetch(form.action, {
+                    method: "POST",
+                    body: new FormData(form)
+                });
+
+                const data = await response.json();
+
+                if (!response.ok || !data.success) {
+                    throw new Error(data.message || "Unable to add item");
+                }
+
+                button.innerText = "ADDED ✓";
+
+                const count = document.getElementById("cart-count");
+                if (count) {
+                    count.innerText = data.cart_item_count;
+                }
+
+                setTimeout(() => {
+                    button.innerText = originalText;
+                    button.disabled = false;
+                }, 1500);
+
+            } catch (error) {
+                alert(error.message);
+                button.innerText = originalText;
+                button.disabled = false;
+            }
+        });
+
+    });
+
+});
+</script>
+</body>
+</html>

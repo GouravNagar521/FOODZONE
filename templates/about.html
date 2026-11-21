@@ -1,0 +1,550 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FoodZone - About Us</title>
+    <meta name="description" content="Discover FoodZone, delicious food, quality ingredients and a variety of meals for every craving.">
+<!-- Google Web Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Oswald:wght@500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        body 
+      {
+            background: #111;
+            color: #fff;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .fz-navbar {
+            background: #191919;
+            border-bottom: 1px solid #333;
+            padding: 18px 0;
+        }
+
+        .fz-brand {
+            color: #fff;
+            font-size: 27px;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .fz-brand span {
+            color: #F28C28;
+        }
+
+        .fz-nav-links a {
+            color: #ddd;
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 23px;
+            transition: .3s;
+        }
+
+        .fz-nav-links a:hover,
+        .fz-nav-links a.active {
+            color: #F28C28;
+        }
+
+        .fz-page-header {
+            background:
+                linear-gradient(rgba(0,0,0,.72), rgba(0,0,0,.72)),
+                url("{% static 'img/bg.jpg' %}") center/cover;
+            padding: 75px 15px;
+            text-align: center;
+        }
+
+        .fz-page-header h1 {
+            font-size: 45px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .fz-page-header p {
+            color: #F28C28;
+            margin-top: 12px;
+        }
+
+        .fz-about-section {
+            padding: 85px 0;
+        }
+
+        .fz-section-label {
+            color: #F28C28;
+            letter-spacing: 3px;
+            font-weight: 700;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+
+        .fz-section-title {
+            font-size: 38px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+        }
+
+        .fz-about-image {
+            width: 100%;
+            height: 460px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 1px solid #383838;
+        }
+
+        .fz-about-text {
+            color: #bbb;
+            line-height: 1.9;
+            font-size: 15px;
+        }
+
+        .fz-feature {
+            background: #202020;
+            border: 1px solid #383838;
+            border-radius: 12px;
+            padding: 22px;
+            height: 100%;
+            transition: .3s;
+        }
+
+        .fz-feature:hover {
+            transform: translateY(-5px);
+            border-color: #F28C28;
+        }
+
+        .fz-feature-icon {
+            width: 55px;
+            height: 55px;
+            background: rgba(242,140,40,.13);
+            color: #F28C28;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            font-size: 23px;
+            margin-bottom: 18px;
+        }
+
+        .fz-feature h4 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .fz-feature p {
+            color: #aaa;
+            font-size: 13px;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        .fz-values-section {
+            background: #191919;
+            padding: 75px 0;
+        }
+
+        .fz-value-card {
+            text-align: center;
+            padding: 30px 20px;
+            height: 100%;
+            background: #222;
+            border: 1px solid #383838;
+            border-radius: 13px;
+        }
+
+        .fz-value-card i {
+            font-size: 34px;
+            color: #F28C28;
+            margin-bottom: 20px;
+        }
+
+        .fz-value-card h4 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .fz-value-card p {
+            color: #aaa;
+            font-size: 13px;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .fz-cta {
+            padding: 75px 15px;
+            text-align: center;
+        }
+
+        .fz-cta h2 {
+            font-size: 34px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .fz-cta p {
+            color: #aaa;
+            margin-bottom: 25px;
+        }
+
+        .fz-btn {
+            display: inline-block;
+            background: #F28C28;
+            color: #111;
+            padding: 13px 28px;
+            border-radius: 8px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .fz-btn:hover {
+            background: #ffad52;
+            color: #111;
+            transform: translateY(-2px);
+        }
+
+        .fz-footer {
+            background: #191919;
+            border-top: 1px solid #333;
+            padding: 55px 0 20px;
+        }
+
+        .fz-footer h3 {
+            font-size: 25px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .fz-footer h3 span {
+            color: #F28C28;
+        }
+
+        .fz-footer h5 {
+            color: #F28C28;
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .fz-footer p,
+        .fz-footer a {
+            color: #aaa;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .fz-footer a {
+            display: block;
+            text-decoration: none;
+            margin-bottom: 6px;
+        }
+
+        .fz-footer a:hover {
+            color: #F28C28;
+        }
+
+        .fz-footer-bottom {
+            border-top: 1px solid #333;
+            text-align: center;
+            color: #888;
+            padding-top: 20px;
+            margin-top: 30px;
+            font-size: 12px;
+        }
+
+        @media(max-width: 991px) {
+            .fz-nav-links {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 14px;
+                margin-top: 18px;
+            }
+
+            .fz-nav-links a {
+                margin-left: 0;
+                font-size: 13px;
+            }
+        }
+
+        @media(max-width: 600px) {
+            .fz-page-header h1 {
+                font-size: 32px;
+            }
+
+            .fz-section-title {
+                font-size: 29px;
+            }
+
+            .fz-about-image {
+                height: 300px;
+                margin-bottom: 30px;
+            }
+
+            .fz-cta h2 {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+{% include 'includes/navigation.html' %}
+
+<!-- FOODZONE COMMON NAVBAR START -->
+
+<nav class="fz-site-navbar">
+    <div class="container fz-nav-container">
+
+        <a href="/" class="fz-site-brand">
+            FOOD<span>ZONE</span>
+        </a>
+
+        <div class="fz-site-links">
+            <a href="/">Home</a>
+            <a href="/menu/">Menu</a>
+            <a href="/about/" class="active">About</a>
+            <a href="/book_table/">Book a Table</a>
+            <a href="/contact/">Contact</a>
+            <a href="{% url 'cart' %}">
+                <i class="fas fa-shopping-cart"></i>
+                Cart ({{ cart_item_count }})
+            </a>
+        </div>
+
+    </div>
+</nav>
+
+<!-- FOODZONE COMMON NAVBAR END -->
+<!-- Page Header -->
+<section class="fz-page-header">
+    <h1>About FoodZone</h1>
+    <p>
+        <a href="/" class="text-white text-decoration-none">Home</a>
+        <i class="fas fa-chevron-right mx-2"></i>
+        About Us
+    </p>
+</section>
+
+<!-- About Section -->
+<section class="fz-about-section">
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-5">
+                <img
+                    src="{% static 'img/about.jpg' %}"
+                    alt="Delicious food at FoodZone"
+                    class="fz-about-image"
+                >
+            </div>
+
+            <div class="col-lg-7">
+
+                <p class="fz-section-label">GET TO KNOW US</p>
+
+                <h2 class="fz-section-title">
+                    Welcome To <span style="color:#F28C28;">FoodZone</span>
+                </h2>
+
+                <h5 class="mb-4">
+                    Fresh Ingredients, Delicious Food and Great Taste.
+                </h5>
+
+                <p class="fz-about-text">
+                    Welcome to FoodZone, where great taste meets quality
+                    ingredients. We bring together a variety of delicious
+                    dishes, from juicy burgers and cheesy pizzas to
+                    flavourful Indian meals and refreshing beverages.
+                </p>
+
+                <p class="fz-about-text mb-4">
+                    Whether you are craving a quick bite or a satisfying
+                    meal, explore our menu and discover something delicious.
+                    Our goal is to make every food experience enjoyable
+                    with variety, quality and great taste.
+                </p>
+
+                <div class="row g-3">
+
+                    <div class="col-sm-6">
+                        <div class="fz-feature">
+                            <div class="fz-feature-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h4>Quality Ingredients</h4>
+                            <p>
+                                We focus on quality ingredients to prepare
+                                delicious and satisfying meals.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="fz-feature">
+                            <div class="fz-feature-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <h4>Delicious Variety</h4>
+                            <p>
+                                Explore fast food, Indian main courses
+                                and refreshing drinks.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Our Values -->
+<section class="fz-values-section">
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <p class="fz-section-label">WHAT MAKES US SPECIAL</p>
+            <h2 class="fz-section-title">The FoodZone Experience</h2>
+            <p class="text-white-50">
+                Good food, plenty of choices and a simple ordering experience.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-lg-4 col-md-6">
+                <div class="fz-value-card">
+                    <i class="fas fa-leaf"></i>
+                    <h4>Quality First</h4>
+                    <p>
+                        We focus on quality ingredients and delicious
+                        food choices for every craving.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="fz-value-card">
+                    <i class="fas fa-pizza-slice"></i>
+                    <h4>Something For Everyone</h4>
+                    <p>
+                        From burgers and pizzas to Indian meals and
+                        refreshing beverages, explore our menu.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="fz-value-card">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h4>Easy Ordering</h4>
+                    <p>
+                        Browse food items, add your favourites to cart
+                        and place your order online.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- Call To Action -->
+<section class="fz-cta">
+    <div class="container">
+
+        <p class="fz-section-label">HUNGRY ALREADY?</p>
+
+        <h2>Discover Your Next Favourite Meal</h2>
+
+        <p>
+            Explore the FoodZone menu and find something delicious today.
+        </p>
+
+        <a href="/menu/" class="fz-btn">
+            EXPLORE OUR MENU
+            <i class="fas fa-arrow-right ms-2"></i>
+        </a>
+
+    </div>
+</section>
+
+<!-- FoodZone Footer -->
+<footer class="fz-footer">
+    <div class="container">
+
+        <div class="row g-4">
+
+            <div class="col-lg-4">
+                <h3>FOOD<span>ZONE</span></h3>
+
+                <p>
+                    Delicious food, quality ingredients and great taste.
+                    Discover your next favourite meal with FoodZone.
+                </p>
+            </div>
+
+            <div class="col-lg-4">
+                <h5>QUICK LINKS</h5>
+
+                <a href="/">Home</a>
+                <a href="/menu/">Menu</a>
+                <a href="/about/">About Us</a>
+                <a href="/book_table/">Book a Table</a>
+                <a href="/contact/">Contact Us</a>
+                <a href="{% url 'cart' %}">My Cart</a>
+            </div>
+
+            <div class="col-lg-4">
+                <h5>GET IN TOUCH</h5>
+
+                <p>
+                    <i class="fas fa-envelope text-warning me-2"></i>
+                    <a href="mailto:nagarvegeta@gmail.com" class="d-inline">
+                        nagarvegeta@gmail.com
+                    </a>
+                </p>
+
+                <p>
+                    <i class="fas fa-phone text-warning me-2"></i>
+                    <a href="tel:+919827355206" class="d-inline">
+                        +91 9827355206
+                    </a>
+                </p>
+            </div>
+
+        </div>
+
+        <div class="fz-footer-bottom">
+            © {% now "Y" %} FoodZone. All Rights Reserved.
+        </div>
+
+    </div>
+</footer>
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+<script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+<script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+<!-- Template Javascript -->
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

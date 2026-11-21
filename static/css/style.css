@@ -1,0 +1,2010 @@
+/********** Template CSS **********/
+:root {
+    --primary: #F28C28;
+    --secondary: #F7F2EA;
+    --light: #FFFFFF;
+    --dark: #191919;
+}
+
+.font-secondary {
+    font-family: 'Pacifico', cursive;
+}
+
+h1,
+h2,
+.font-weight-bold {
+    font-weight: 700 !important;
+}
+
+h3,
+h4,
+.font-weight-semi-bold {
+    font-weight: 600 !important;
+}
+
+h5,
+h6,
+.font-weight-medium {
+    font-weight: 500 !important;
+}
+
+.btn {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    transition: .5s;
+}
+
+.btn-primary {
+    color: #FFFFFF;
+}
+
+.border-inner {
+    position: relative;
+}
+
+.border-inner * {
+    position: relative;
+    z-index: 1;
+}
+
+.border-inner::before {
+    position: absolute;
+    content: "";
+    top: 10px;
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+    background: none;
+    border: 1px solid var(--light);
+    z-index: 0;
+}
+
+.btn-square {
+    width: 40px;
+    height: 40px;
+}
+
+.btn-sm-square {
+    width: 30px;
+    height: 30px;
+}
+
+.btn-lg-square {
+    width: 50px;
+    height: 50px;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-lg-square {
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+}
+
+.back-to-top {
+    position: fixed;
+    display: none;
+    right: 30px;
+    bottom: 0;
+    border-radius: 0;
+    z-index: 99;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    font-family: 'Oswald', sans-serif;
+    padding: 30px 15px;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--light);
+    outline: none;
+    transition: .5s;
+}
+
+.sticky-top.navbar-dark .navbar-nav .nav-link {
+    padding: 20px 15px;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+    color: var(--primary);
+}
+
+@media (max-width: 991.98px) {
+    .navbar-dark .navbar-nav .nav-link  {
+        padding: 10px 0;
+    }
+}
+
+.hero-header {
+    background: url(../img/hero.jpg) top right no-repeat;
+    background-size: cover;
+}
+
+.btn-play {
+    position: relative;
+    display: block;
+    box-sizing: content-box;
+    width: 16px;
+    height: 26px;
+    border-radius: 100%;
+    border: none;
+    outline: none !important;
+    padding: 18px 20px 20px 28px;
+    background: #FFFFFF;
+}
+
+.btn-play:before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: block;
+    width: 60px;
+    height: 60px;
+    background: #FFFFFF;
+    border-radius: 100%;
+    animation: pulse-border 1500ms ease-out infinite;
+}
+
+.btn-play:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: block;
+    width: 60px;
+    height: 60px;
+    background: #FFFFFF;
+    border-radius: 100%;
+    transition: all 200ms;
+}
+
+.btn-play span {
+    display: block;
+    position: relative;
+    z-index: 3;
+    width: 0;
+    height: 0;
+    left: -1px;
+    border-left: 16px solid var(--primary);
+    border-top: 11px solid transparent;
+    border-bottom: 11px solid transparent;
+}
+
+@keyframes pulse-border {
+    0% {
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(2);
+        opacity: 0;
+    }
+}
+
+#videoModal .modal-dialog {
+    position: relative;
+    max-width: 800px;
+    margin: 60px auto 0 auto;
+}
+
+#videoModal .modal-body {
+    position: relative;
+    padding: 0px;
+}
+
+#videoModal .close {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    right: 0px;
+    top: -30px;
+    z-index: 999;
+    font-size: 30px;
+    font-weight: normal;
+    color: #FFFFFF;
+    background: #000000;
+    opacity: 1;
+}
+
+.section-title::before {
+    position: absolute;
+    content: "";
+    width: 60px;
+    height: 10px;
+    left: 50%;
+    bottom: 0;
+    margin-left: -30px;
+    background: var(--primary);
+}
+
+.section-title::after {
+    position: absolute;
+    content: "";
+    width: 180px;
+    height: 2px;
+    left: 50%;
+    bottom: 4px;
+    margin-left: -90px;
+    background: var(--primary);
+}
+
+.service::after,
+.contact::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: calc(100% - 45px);
+    top: 135px;
+    left: 0;
+    background: linear-gradient(rgba(43, 40, 37, .9), rgba(43, 40, 37, .9)), url(../img/service.jpg) center center no-repeat;
+    background-size: cover;
+    z-index: -1;
+}
+
+.contact::after {
+    background: linear-gradient(rgba(43, 40, 37, .5), rgba(43, 40, 37, .5)), url(../img/bg.jpg) center center no-repeat;
+    background-size: cover;
+}
+
+.bg-offer {
+    background: linear-gradient(rgba(43, 40, 37, .9), rgba(43, 40, 37, .9)), url(../img/offer.jpg) center center no-repeat;
+    background-size: cover;
+}
+
+.team-item img {
+    transition: .5s;
+}
+
+.team-item:hover img {
+    transform: scale(1.1);
+    filter: blur(5px)
+}
+
+.team-item .team-overlay {
+    transition: .5s;
+    opacity: 0;
+}
+
+.team-item:hover .team-overlay {
+    opacity: 1;
+}
+
+.testimonial-carousel .owl-dots {
+    height: 45px;
+    margin-top: 30px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.testimonial-carousel .owl-dot {
+    position: relative;
+    display: inline-block;
+    margin: 0 2px;
+    width: 10px;
+    height: 25px;
+    background: #DDDDDD;
+    transition: .5s;
+}
+
+.testimonial-carousel .owl-dot.active {
+    height: 45px;
+    background: var(--primary);
+}
+
+.testimonial-carousel .owl-item .testimonial-item {
+    opacity: .1;
+    transition: .5s;
+}
+
+.testimonial-carousel .owl-item.center .testimonial-item {
+    opacity: 1;
+}
+
+.bg-img {
+    background: linear-gradient(rgba(43, 40, 37, .5), rgba(43, 40, 37, .5)), url(../img/bg.jpg) center center no-repeat;
+    background-size: cover;
+}
+/* ===================================
+   FOODZONE - PREMIUM DARK THEME
+=================================== */
+
+body {
+    background-color: #191919;
+    color: #F7F2EA;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #F7F2EA;
+}
+
+.text-primary {
+    color: #F28C28 !important;
+}
+
+.bg-primary {
+    background-color: #F28C28 !important;
+}
+
+.bg-dark {
+    background-color: #191919 !important;
+}
+
+.bg-secondary {
+    background-color: #252321 !important;
+}
+
+.btn-primary {
+    background-color: #F28C28 !important;
+    border-color: #F28C28 !important;
+    color: #191919 !important;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #ffab50 !important;
+    border-color: #ffab50 !important;
+    transform: translateY(-3px);
+}
+
+.navbar {
+    background: #191919 !important;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.navbar .nav-link {
+    color: #F7F2EA !important;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    color: #F28C28 !important;
+}
+
+.hero-header {
+    background:
+        linear-gradient(rgba(15,15,15,0.65), rgba(15,15,15,0.75)),
+        url("../img/hero.jpg") center center / cover no-repeat !important;
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+}
+
+.section-title h1 {
+    color: #F7F2EA;
+}
+
+.section-title h2 {
+    color: #F28C28;
+}
+
+a {
+    transition: all 0.3s ease;
+}
+
+::selection {
+    background: #F28C28;
+    color: #191919;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-header {
+        min-height: 500px;
+        text-align: center;
+    }
+
+    .hero-header h1.display-1 {
+        font-size: 3rem;
+    }
+}
+/* ===== FOODZONE CUSTOM HEADER ===== */
+
+.fz-header {
+    background: #191919;
+}
+
+.fz-topbar {
+    min-height: 90px;
+    padding: 15px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #191919;
+}
+
+.fz-logo {
+    color: #F7F2EA;
+    font-size: 32px;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.fz-logo i,
+.fz-logo span {
+    color: #F28C28;
+}
+
+.fz-contact {
+    display: flex;
+    gap: 30px;
+    color: #F7F2EA;
+    font-size: 14px;
+}
+
+.fz-contact i {
+    color: #F28C28;
+    margin-right: 8px;
+}
+
+.fz-navbar {
+    min-height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 38px;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+
+.fz-navbar a {
+    color: #F7F2EA;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.fz-navbar a:hover,
+.fz-navbar a.active {
+    color: #F28C28;
+}
+
+/* ===== FOODZONE HERO ===== */
+
+.fz-hero {
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    padding: 70px 8%;
+    background:
+        linear-gradient(90deg, rgba(15,15,15,.95), rgba(15,15,15,.65), rgba(15,15,15,.15)),
+        url("../img/hero.jpg") center center / cover no-repeat;
+}
+
+.fz-hero-content {
+    max-width: 650px;
+}
+
+.fz-eyebrow {
+    color: #F28C28;
+    font-weight: 700;
+    letter-spacing: 4px;
+    font-size: 14px;
+}
+
+.fz-hero h1 {
+    color: #fff;
+    font-size: clamp(48px, 6vw, 82px);
+    line-height: 1.08;
+    font-weight: 900;
+    margin: 20px 0;
+}
+
+.fz-hero h1 span {
+    color: #F28C28;
+}
+
+.fz-hero-description {
+    color: #e1ddd6;
+    font-size: 17px;
+    line-height: 1.8;
+    max-width: 520px;
+}
+
+.fz-hero-buttons {
+    display: flex;
+    gap: 18px;
+    margin-top: 35px;
+}
+
+.fz-btn-primary,
+.fz-btn-outline {
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.fz-btn-primary {
+    background: #F28C28;
+    color: #191919;
+}
+
+.fz-btn-outline {
+    border: 1px solid #F7F2EA;
+    color: #F7F2EA;
+}
+
+.fz-btn-primary:hover {
+    background: #fff;
+    color: #191919;
+}
+
+.fz-btn-outline:hover {
+    background: #F28C28;
+    color: #191919;
+    border-color: #F28C28;
+}
+
+@media(max-width: 768px) {
+    .fz-topbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .fz-contact {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .fz-navbar {
+        gap: 15px;
+        flex-wrap: wrap;
+        padding: 18px 10px;
+    }
+
+    .fz-hero {
+        min-height: 550px;
+        padding: 50px 7%;
+    }
+
+    .fz-hero-buttons {
+        flex-wrap: wrap;
+    }
+}
+/* FOODZONE CSS TEST */
+.fz-topbar {
+    background: #191919 !important;
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 7%;
+}
+
+.fz-navbar {
+    background: #191919 !important;
+    min-height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 38px;
+}
+
+.fz-hero {
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    padding: 70px 8%;
+    background: linear-gradient(90deg, #191919, transparent),
+                url("../img/hero.jpg") center/cover no-repeat;
+}
+/* FOODZONE CATEGORIES */
+
+.fz-categories {
+    background: #191919;
+    padding: 90px 7%;
+}
+
+.fz-section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.fz-section-heading p {
+    color: #F28C28;
+    letter-spacing: 4px;
+    font-weight: 700;
+}
+
+.fz-section-heading h2 {
+    color: #F7F2EA;
+    font-size: 38px;
+    font-weight: 800;
+}
+
+.fz-section-heading h2 span {
+    color: #F28C28;
+}
+
+.fz-heading-line {
+    width: 65px;
+    height: 4px;
+    background: #F28C28;
+    margin: 18px auto;
+}
+
+.fz-category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.fz-category-card {
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    text-decoration: none;
+}
+
+.fz-category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .4s;
+}
+
+.fz-category-card:hover img {
+    transform: scale(1.1);
+}
+
+.fz-category-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 25px;
+    background: linear-gradient(transparent, rgba(0,0,0,.9));
+}
+
+.fz-category-overlay h3 {
+    color: white;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.fz-category-overlay span {
+    color: #F28C28;
+    font-weight: 700;
+}
+
+@media(max-width: 900px) {
+    .fz-category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 500px) {
+    .fz-category-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* ===== FOODZONE ABOUT SECTION ===== */
+
+.fz-about {
+    background: #211f1d;
+    padding: 100px 8%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 65px;
+}
+
+.fz-about-image {
+    position: relative;
+}
+
+.fz-about-image img {
+    width: 100%;
+    height: 470px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.fz-about-badge {
+    position: absolute;
+    bottom: 20px;
+    right: -20px;
+    background: #F28C28;
+    color: #191919;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.fz-about-badge strong {
+    font-size: 22px;
+}
+
+.fz-about-badge span {
+    font-size: 13px;
+}
+
+.fz-about-label {
+    color: #F28C28;
+    font-weight: 800;
+    letter-spacing: 4px;
+}
+
+.fz-about-content h2 {
+    color: #fff;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 900;
+    line-height: 1.2;
+    margin: 18px 0;
+}
+
+.fz-about-content h2 span {
+    color: #F28C28;
+}
+
+.fz-about-content > p:not(.fz-about-label) {
+    color: #c9c3bb;
+    line-height: 1.9;
+    margin-bottom: 18px;
+}
+
+.fz-about-content .fz-btn-primary {
+    display: inline-block;
+    margin-top: 15px;
+}
+
+@media(max-width: 768px) {
+    .fz-about {
+        grid-template-columns: 1fr;
+        padding: 65px 7%;
+        gap: 40px;
+    }
+
+    .fz-about-image img {
+        height: 350px;
+    }
+
+    .fz-about-badge {
+        right: 10px;
+    }
+}
+/* ===== FOODZONE BEST SELLERS ===== */
+
+.fz-products {
+    background: #191919;
+    padding: 90px 7%;
+}
+
+.fz-product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.fz-product-card {
+    background: #252321;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.fz-product-card:hover {
+    transform: translateY(-8px);
+}
+
+.fz-product-image {
+    height: 230px;
+    overflow: hidden;
+}
+
+.fz-product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.fz-product-info {
+    padding: 22px;
+}
+
+.fz-product-info h3 {
+    color: #fff;
+    font-size: 21px;
+}
+
+.fz-product-info p {
+    color: #bdb7ae;
+    font-size: 14px;
+    min-height: 45px;
+}
+
+.fz-product-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.fz-product-bottom strong {
+    color: #F28C28;
+    font-size: 22px;
+}
+
+.fz-product-bottom button {
+    background: #F28C28;
+    color: #191919;
+    border: none;
+    padding: 10px 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.fz-view-menu {
+    text-align: center;
+    margin-top: 45px;
+}
+
+.fz-view-menu a {
+    display: inline-block;
+}
+
+@media(max-width: 1000px) {
+    .fz-product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 550px) {
+    .fz-product-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* ===== FOODZONE WHY CHOOSE US ===== */
+
+.fz-why {
+    background: #211f1d;
+    padding: 90px 7%;
+}
+
+.fz-why-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    margin-top: 45px;
+}
+
+.fz-why-card {
+    background: #191919;
+    border: 1px solid #38332e;
+    border-radius: 12px;
+    padding: 35px 22px;
+    text-align: center;
+    transition: .3s ease;
+}
+
+.fz-why-card:hover {
+    transform: translateY(-8px);
+    border-color: #F28C28;
+}
+
+.fz-why-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F28C28;
+    border-radius: 50%;
+    color: #191919;
+    font-size: 27px;
+}
+
+.fz-why-card h3 {
+    color: #F7F2EA;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.fz-why-card p {
+    color: #bdb7ae;
+    line-height: 1.7;
+    margin: 0;
+}
+
+@media(max-width: 1000px) {
+    .fz-why-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 550px) {
+    .fz-why-grid {
+        grid-template-columns: 1fr;
+    }
+}/* ===== FOODZONE ORDER CTA ===== */
+
+.fz-order-cta {
+    position: relative;
+    padding: 100px 7%;
+    text-align: center;
+    background:
+        linear-gradient(rgba(15,15,15,.88), rgba(15,15,15,.88)),
+        url("../img/offer.jpg") center/cover no-repeat;
+}
+
+.fz-order-content {
+    max-width: 750px;
+    margin: auto;
+}
+
+.fz-order-content > p {
+    color: #F28C28;
+    font-weight: 800;
+    letter-spacing: 4px;
+}
+
+.fz-order-content h2 {
+    color: #fff;
+    font-size: clamp(32px, 5vw, 55px);
+    font-weight: 900;
+    margin: 20px 0;
+}
+
+.fz-order-content > span {
+    color: #d0c9c0;
+    font-size: 17px;
+}
+
+.fz-order-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 35px;
+    flex-wrap: wrap;
+}
+
+.fz-order-buttons a {
+    display: inline-block;
+    padding: 15px 30px;
+}
+/* ===== FOODZONE SPECIAL OFFER ===== */
+
+.fz-special-offer {
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    padding: 70px 9%;
+    background:
+        linear-gradient(90deg, rgba(15,15,15,.95), rgba(15,15,15,.35)),
+        url("../img/offer.jpg") center/cover no-repeat;
+}
+
+.fz-offer-content {
+    max-width: 600px;
+}
+
+.fz-offer-content > p:first-child {
+    color: #F28C28;
+    font-weight: 800;
+    letter-spacing: 4px;
+}
+
+.fz-offer-content h2 {
+    color: #fff;
+    font-size: clamp(38px, 5vw, 60px);
+    font-weight: 900;
+    line-height: 1.15;
+    margin: 20px 0;
+}
+
+.fz-offer-content h2 span {
+    color: #F28C28;
+}
+
+.fz-offer-content > p:not(:first-child) {
+    color: #ddd;
+    line-height: 1.8;
+    margin-bottom: 28px;
+}
+
+.fz-offer-content a {
+    display: inline-block;
+}
+/* FOODZONE MENU PAGE */
+
+.fz-menu-section {
+    padding: 35px 80px;
+    background: #191919;
+}
+
+.fz-menu-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.fz-menu-heading > p {
+    color: #F28C28;
+    font-weight: 700;
+    letter-spacing: 3px;
+    font-size: 13px;
+}
+
+.fz-menu-heading h2 {
+    color: #fff;
+    font-size: 42px;
+    font-weight: 800;
+    margin: 10px 0;
+}
+
+.fz-menu-heading span {
+    color: #aaa;
+}
+
+.fz-menu-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.fz-filter-btn {
+    background: #292929;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 11px 22px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.fz-filter-btn:hover,
+.fz-filter-btn.active {
+    background: #F28C28;
+    color: #191919;
+    border-color: #F28C28;
+}
+
+.fz-menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.fz-menu-card {
+    background: #242424;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #333;
+    transition: .3s;
+}
+
+.fz-menu-card:hover {
+    transform: translateY(-7px);
+    border-color: #F28C28;
+}
+
+/* FOODZONE MENU IMAGE - FULL IMAGE FIX */
+
+.fz-menu-image {
+    width: 100%;
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+    background: #191919;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fz-menu-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    transition: filter 0.3s ease;
+}
+
+.fz-menu-card:hover .fz-menu-image img {
+    filter: brightness(1.08);
+}
+.fz-menu-category {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background: #F28C28;
+    color: #191919;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.fz-menu-info {
+    padding: 22px;
+}
+
+.fz-menu-info h3 {
+    color: #fff;
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.fz-menu-info p {
+    color: #aaa;
+    font-size: 14px;
+    min-height: 45px;
+}
+
+.fz-menu-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.fz-menu-bottom strong {
+    color: #F28C28;
+    font-size: 23px;
+}
+
+.fz-menu-bottom button {
+    background: #F28C28;
+    color: #191919;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.fz-menu-bottom button:hover {
+    background: #fff;
+}
+
+.fz-no-image {
+    height: 100%;
+    display: grid;
+    place-items: center;
+    color: #aaa;
+}
+
+.fz-menu-empty {
+    color: #fff;
+    text-align: center;
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 991px) {
+    .fz-menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .fz-menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .fz-menu-heading h2 {
+        font-size: 30px;
+    }
+
+    .fz-menu-image {
+    height: 230px;
+}
+}
+/* FOODZONE FOOTER */
+
+.fz-footer {
+    background: #111;   
+    color: #aaa;
+    padding: 65px 0 20px;
+}
+
+.fz-footer h2 {
+    color: #fff;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+.fz-footer h2 span {
+    color: #F28C28;
+}
+
+.fz-footer h4 {
+    color: #F28C28;
+    font-size: 17px;
+    margin-bottom: 22px;
+}
+
+.fz-footer a {
+    display: block;
+    color: #aaa;
+    text-decoration: none;
+    margin-bottom: 12px;
+}
+
+.fz-footer a:hover {
+    color: #F28C28;
+}
+
+.fz-footer p {
+    margin-bottom: 12px;
+}
+
+.fz-footer-bottom {
+    border-top: 1px solid #333;
+    text-align: center;
+    padding-top: 22px;
+    margin-top: 35px;
+    font-size: 14px;
+}/* FOODZONE - COMMON FONT FOR ALL PAGES */
+
+body,
+h1, h2, h3, h4, h5, h6,
+p, a, span, button,
+input, textarea, select, label,
+strong, small, li {
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+/* Navbar consistency */
+.fz-navbar a,
+.fz-nav-links a,
+.fz-logo,
+.fz-brand,
+.cart-brand,
+.cart-navbar a,
+.navbar-dark .navbar-nav .nav-link {
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+/* Button consistency */
+button,
+.btn,
+.fz-btn,
+.fz-btn-primary,
+.fz-btn-outline {
+    font-family: 'Open Sans', sans-serif !important;
+}/* FOODZONE COMMON NAVBAR */
+
+.fz-site-navbar {
+    background: #191919;
+    border-bottom: 1px solid #333;
+    padding: 18px 0;
+    width: 100%;
+}
+
+.fz-site-navbar .fz-nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.fz-site-navbar .fz-site-brand {
+    color: #fff;
+    font-size: 27px;
+    font-weight: 800;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.fz-site-navbar .fz-site-brand span {
+    color: #F28C28;
+}
+
+.fz-site-navbar .fz-site-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.fz-site-navbar .fz-site-links a {
+    color: #ddd;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.fz-site-navbar .fz-site-links a:hover,
+.fz-site-navbar .fz-site-links a.active {
+    color: #F28C28;
+}
+
+@media(max-width: 768px) {
+    .fz-site-navbar .fz-nav-container {
+        flex-direction: column;
+    }
+
+    .fz-site-navbar .fz-site-links {
+        justify-content: center;
+        gap: 15px;
+    }
+}
+/* =====================================
+   FOODZONE LEFT SLIDING NAVIGATION DRAWER
+===================================== */
+
+.fz-menu-trigger {
+    position: fixed;
+    top: 22px;
+    left: 22px;
+    z-index: 1001;
+    width: 48px;
+    height: 48px;
+    border: 1px solid #444;
+    border-radius: 10px;
+    background: #252321;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,.3);
+}
+
+.fz-menu-trigger span {
+    width: 4px;
+    height: 4px;
+    background: #F28C28;
+    border-radius: 50%;
+}
+
+.fz-menu-trigger:hover {
+    background: #F28C28;
+}
+
+.fz-menu-trigger:hover span {
+    background: #191919;
+}
+
+.fz-drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.7);
+    z-index: 1002;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s ease;
+}
+
+.fz-side-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 330px;
+    max-width: 85%;
+    height: 100vh;
+    height: 100dvh;
+    background: #191919;
+    border-right: 1px solid #38332e;
+    z-index: 1003;
+    transform: translateX(-100%);
+    transition: transform .35s ease;
+    overflow-y: auto;
+    padding-bottom: 30px;
+}
+
+body.fz-drawer-open .fz-side-drawer {
+    transform: translateX(0);
+}
+
+body.fz-drawer-open .fz-drawer-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+body.fz-drawer-open {
+    overflow: hidden;
+}
+
+.fz-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px;
+    border-bottom: 1px solid #333;
+}
+
+.fz-drawer-logo {
+    color: #fff;
+    font-size: 25px;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+.fz-drawer-logo span {
+    color: #F28C28;
+}
+
+.fz-drawer-close {
+    background: transparent;
+    color: #fff;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.fz-drawer-profile {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 24px 20px;
+    background: #252321;
+    border-bottom: 1px solid #38332e;
+}
+
+.fz-profile-avatar {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #F28C28;
+    color: #191919;
+    display: grid;
+    place-items: center;
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.fz-drawer-profile strong {
+    display: block;
+    color: #fff;
+    font-size: 15px;
+    overflow-wrap: anywhere;
+}
+
+.fz-drawer-profile small {
+    display: block;
+    color: #aaa;
+    font-size: 12px;
+    overflow-wrap: anywhere;
+    margin-top: 4px;
+}
+
+.fz-auth-links {
+    display: flex;
+    gap: 14px;
+    margin-top: 9px;
+}
+
+.fz-auth-links a {
+    color: #F28C28;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.fz-drawer-nav {
+    padding: 15px 0;
+}
+
+.fz-drawer-nav > a {
+    display: block;
+    padding: 12px 24px;
+    color: #ddd;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: .2s ease;
+}
+
+.fz-drawer-nav > a:hover {
+    color: #F28C28;
+    background: #252321;
+    padding-left: 30px;
+}
+
+.fz-drawer-label {
+    padding: 18px 24px 8px;
+    color: #F28C28;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.fz-drawer-divider {
+    height: 1px;
+    background: #38332e;
+    margin: 12px 20px;
+}
+
+.fz-logout-form {
+    padding: 10px 24px;
+}
+
+.fz-logout-form button {
+    width: 100%;
+    padding: 12px;
+    color: #ff7777;
+    background: transparent;
+    border: 1px solid #633;
+    border-radius: 6px;
+    font-weight: 700;
+    text-align: left;
+    cursor: pointer;
+}
+
+.fz-logout-form button:hover {
+    background: #3a2020;
+}
+
+@media (max-width: 576px) {
+    .fz-menu-trigger {
+        top: 14px;
+        left: 14px;
+        width: 43px;
+        height: 43px;
+    }
+
+    .fz-side-drawer {
+        width: 300px;
+    }
+}
+
+/* ==========================================
+   FOODZONE - CONSOLIDATED RESPONSIVE FIXES
+   Added after existing styles; preserves theme
+========================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    overflow-x: clip;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+img,
+video,
+iframe {
+    max-width: 100%;
+}
+
+img {
+    height: auto;
+}
+
+input,
+textarea,
+select,
+button {
+    max-width: 100%;
+}
+
+/* Avoid long text pushing cards and rows wider than the screen */
+.fz-product-card,
+.fz-menu-card,
+.fz-category-card,
+.fz-why-card,
+.fz-about-content,
+.fz-order-content,
+.fz-offer-content {
+    min-width: 0;
+}
+
+.fz-product-info,
+.fz-menu-info,
+.fz-drawer-profile > div:last-child {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+/* Header / navigation */
+.fz-topbar,
+.fz-site-navbar .fz-nav-container {
+    width: 100%;
+    min-width: 0;
+}
+
+.fz-contact,
+.fz-navbar,
+.fz-site-navbar .fz-site-links {
+    flex-wrap: wrap;
+}
+
+.fz-navbar {
+    padding: 12px 20px;
+}
+
+/* Main page sections */
+.fz-categories,
+.fz-products,
+.fz-why,
+.fz-menu-section {
+    width: 100%;
+    max-width: 100%;
+}
+
+.fz-menu-section {
+    padding: 55px clamp(16px, 5vw, 80px);
+}
+
+.fz-category-grid,
+.fz-product-grid,
+.fz-why-grid,
+.fz-menu-grid {
+    width: 100%;
+    min-width: 0;
+}
+
+.fz-category-card,
+.fz-product-card,
+.fz-menu-card {
+    min-width: 0;
+}
+
+.fz-product-image img,
+.fz-menu-image img,
+.fz-category-card img {
+    max-width: 100%;
+}
+
+/* Forms and common content blocks */
+form {
+    max-width: 100%;
+}
+
+input,
+select,
+textarea {
+    min-width: 0;
+}
+
+.table-responsive {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Tablet */
+@media (min-width: 577px) and (max-width: 991.98px) {
+    .fz-hero {
+        min-height: 560px;
+        padding: 60px 6%;
+        background-position: center;
+    }
+
+    .fz-category-grid,
+    .fz-product-grid,
+    .fz-why-grid,
+    .fz-menu-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .fz-about {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 28px;
+        padding: 70px 5%;
+    }
+
+    .fz-about-image img {
+        height: 380px;
+    }
+
+    .fz-navbar {
+        gap: 18px;
+    }
+
+    .fz-site-navbar .fz-site-links {
+        gap: 14px;
+    }
+
+    .fz-menu-section {
+        padding: 50px 5%;
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .fz-topbar {
+        min-height: auto;
+        padding: 18px 16px 18px 68px;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .fz-logo {
+        font-size: 25px;
+    }
+
+    .fz-contact {
+        width: 100%;
+        gap: 6px;
+        font-size: 12px;
+    }
+
+    .fz-navbar {
+        justify-content: center;
+        gap: 10px 16px;
+        padding: 14px 12px;
+    }
+
+    .fz-navbar a {
+        font-size: 12px;
+    }
+
+    .fz-site-navbar {
+        padding: 14px 12px;
+    }
+
+    .fz-site-navbar .fz-nav-container {
+        align-items: center;
+        gap: 12px;
+        padding-left: 48px;
+    }
+
+    .fz-site-navbar .fz-site-brand {
+        font-size: 22px;
+    }
+
+    .fz-site-navbar .fz-site-links {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 10px 16px;
+    }
+
+    .fz-site-navbar .fz-site-links a {
+        font-size: 12px;
+    }
+
+    .fz-hero {
+        min-height: 500px;
+        padding: 55px 20px;
+        background-position: center;
+        text-align: center;
+    }
+
+    .fz-hero-content {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .fz-hero h1 {
+        font-size: clamp(34px, 10vw, 48px);
+        overflow-wrap: anywhere;
+    }
+
+    .fz-eyebrow,
+    .fz-section-heading p,
+    .fz-order-content > p,
+    .fz-offer-content > p:first-child {
+        letter-spacing: 2px;
+        font-size: 11px;
+    }
+
+    .fz-hero-description,
+    .fz-order-content > span {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .fz-hero-buttons,
+    .fz-order-buttons {
+        width: 100%;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .fz-hero-buttons a,
+    .fz-order-buttons a,
+    .fz-btn-primary,
+    .fz-btn-outline {
+        max-width: 100%;
+        padding: 12px 18px;
+        font-size: 13px;
+    }
+
+    .fz-categories,
+    .fz-products,
+    .fz-why {
+        padding: 55px 18px;
+    }
+
+    .fz-section-heading {
+        margin-bottom: 28px;
+    }
+
+    .fz-section-heading h2,
+    .fz-menu-heading h2 {
+        font-size: clamp(26px, 7vw, 32px);
+        line-height: 1.2;
+    }
+
+    .fz-category-grid,
+    .fz-product-grid,
+    .fz-why-grid,
+    .fz-menu-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+    }
+
+    .fz-category-card {
+        height: 260px;
+    }
+
+    .fz-category-overlay {
+        padding: 18px;
+    }
+
+    .fz-category-overlay h3 {
+        font-size: 22px;
+    }
+
+    .fz-product-image {
+        height: 210px;
+    }
+
+    .fz-product-info,
+    .fz-menu-info {
+        padding: 18px;
+    }
+
+    .fz-product-info h3,
+    .fz-menu-info h3 {
+        font-size: 19px;
+    }
+
+    .fz-product-bottom strong,
+    .fz-menu-bottom strong {
+        font-size: 19px;
+    }
+
+    .fz-menu-section {
+        padding: 42px 16px;
+    }
+
+    .fz-menu-filters {
+        justify-content: flex-start;
+        gap: 8px;
+        margin-bottom: 26px;
+    }
+
+    .fz-filter-btn {
+        padding: 9px 14px;
+        font-size: 12px;
+    }
+
+    .fz-menu-image {
+        height: 220px;
+    }
+
+    .fz-about {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 55px 18px;
+        gap: 30px;
+    }
+
+    .fz-about-image img {
+        height: 280px;
+    }
+
+    .fz-about-badge {
+        right: 10px;
+        bottom: 10px;
+        padding: 12px 16px;
+    }
+
+    .fz-about-badge strong {
+        font-size: 18px;
+    }
+
+    .fz-about-content h2,
+    .fz-order-content h2,
+    .fz-offer-content h2 {
+        font-size: clamp(27px, 8vw, 36px);
+        line-height: 1.2;
+    }
+
+    .fz-why-card {
+        padding: 26px 18px;
+    }
+
+    .fz-order-cta,
+    .fz-special-offer {
+        min-height: auto;
+        padding: 65px 18px;
+        text-align: center;
+        background-position: center;
+    }
+
+    .fz-offer-content {
+        width: 100%;
+    }
+
+    .fz-footer {
+        padding: 45px 18px 18px;
+    }
+
+    .fz-footer-bottom {
+        font-size: 12px;
+        overflow-wrap: anywhere;
+    }
+
+    .fz-menu-trigger {
+        top: 12px;
+        left: 12px;
+        width: 42px;
+        height: 42px;
+    }
+
+    .fz-side-drawer {
+        width: min(300px, 88vw);
+        max-width: 88vw;
+    }
+
+    .container,
+    .container-fluid {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .row {
+        --bs-gutter-x: 1.25rem;
+    }
+
+    .table {
+        white-space: nowrap;
+    }
+
+    .back-to-top {
+        right: 14px;
+    }
+}
+
+/* Very narrow phones */
+@media (max-width: 360px) {
+    .fz-category-card {
+        height: 230px;
+    }
+
+    .fz-product-bottom,
+    .fz-menu-bottom {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .fz-product-bottom button,
+    .fz-menu-bottom button {
+        padding: 9px 11px;
+        font-size: 12px;
+    }
+
+    .fz-hero h1 {
+        font-size: 33px;
+    }
+}

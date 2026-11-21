@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - FoodZone</title>
+
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    <style>
+        body {
+            background: #191919;
+            color: white;
+        }
+
+        .auth-section {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 15px;
+        }
+
+        .auth-card {
+            width: 100%;
+            max-width: 450px;
+            background: #252222;
+            padding: 40px;
+            border-radius: 12px;
+        }
+
+        .auth-card h2 {
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .auth-subtitle {
+            text-align: center;
+            color: #aaa;
+            margin-bottom: 30px;
+        }
+
+        .auth-card label {
+            display: block;
+            color: #ddd;
+            margin-bottom: 7px;
+        }
+
+        .auth-card input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #555;
+            background: #191919;
+            color: white;
+            margin-bottom: 18px;
+        }
+
+        .auth-card button {
+            width: 100%;
+            padding: 12px;
+            background: #ff8c1c;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+        }
+
+        .auth-card button:hover {
+            background: #e8790b;
+        }
+
+        .auth-card a {
+            color: #ff8c1c;
+            text-decoration: none;
+        }
+
+        .auth-errors {
+            color: #ff7777;
+            font-size: 14px;
+            margin: -12px 0 15px;
+        }
+
+        .auth-help {
+            color: #aaa;
+            font-size: 12px;
+            margin-top: -13px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+{% include 'includes/navigation.html' %}
+
+<section class="auth-section">
+    <div class="auth-card">
+
+        <h2>CREATE ACCOUNT</h2>
+        <p class="auth-subtitle">Join the FoodZone family</p>
+
+        <form method="post">
+            {% csrf_token %}
+
+            {% if form.non_field_errors %}
+                <div class="auth-errors">
+                    {{ form.non_field_errors }}
+                </div>
+            {% endif %}
+
+            <label for="{{ form.username.id_for_label }}">Username</label>
+            {{ form.username }}
+            {% if form.username.errors %}
+                <div class="auth-errors">{{ form.username.errors }}</div>
+            {% endif %}
+
+            <label for="{{ form.email.id_for_label }}">Email Address</label>
+            {{ form.email }}
+            {% if form.email.errors %}
+                <div class="auth-errors">{{ form.email.errors }}</div>
+            {% endif %}
+
+            <label for="{{ form.password1.id_for_label }}">Password</label>
+            {{ form.password1 }}
+            {% if form.password1.errors %}
+                <div class="auth-errors">{{ form.password1.errors }}</div>
+            {% endif %}
+
+            <label for="{{ form.password2.id_for_label }}">Confirm Password</label>
+            {{ form.password2 }}
+            {% if form.password2.errors %}
+                <div class="auth-errors">{{ form.password2.errors }}</div>
+            {% endif %}
+
+            <button type="submit">CREATE ACCOUNT</button>
+        </form>
+
+        <p class="text-center mt-4 mb-0">
+            Already have an account?
+            <a href="{% url 'login' %}">Login Now</a>
+        </p>
+
+    </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+<script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+<script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

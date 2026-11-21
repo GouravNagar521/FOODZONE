@@ -1,0 +1,440 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodZone - Contact Us</title>
+<!-- Google Web Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Oswald:wght@500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        body {
+            background: #111;
+            color: #fff;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .fz-navbar {
+            background: #191919;
+            border-bottom: 1px solid #333;
+            padding: 18px 0;
+        }
+
+        .fz-brand {
+            color: white;
+            font-size: 27px;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .fz-brand span { color: #F28C28; }
+
+        .fz-nav-links a {
+            color: #ddd;
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 23px;
+            transition: .3s;
+        }
+
+        .fz-nav-links a:hover,
+        .fz-nav-links a.active { color: #F28C28; }
+
+        .fz-page-header {
+            background: linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
+            url("{% static 'img/bg.jpg' %}") center/cover;
+            padding: 75px 15px;
+            text-align: center;
+        }
+
+        .fz-page-header h1 {
+            font-size: 45px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .fz-page-header p { color: #F28C28; margin-top: 12px; }
+
+        .fz-contact-section { padding: 75px 0; }
+
+        .fz-label {
+            color: #F28C28;
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .fz-title {
+            font-size: 36px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .fz-contact-info {
+            background: #202020;
+            border: 1px solid #383838;
+            border-radius: 13px;
+            padding: 28px 20px;
+            height: 100%;
+            text-align: center;
+            transition: .3s;
+        }
+
+        .fz-contact-info:hover {
+            border-color: #F28C28;
+            transform: translateY(-5px);
+        }
+
+        .fz-contact-info i {
+            color: #F28C28;
+            font-size: 30px;
+            margin-bottom: 17px;
+        }
+
+        .fz-contact-info h5 {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .fz-contact-info p,
+        .fz-contact-info a {
+            color: #aaa;
+            font-size: 13px;
+            text-decoration: none;
+            margin: 0;
+            overflow-wrap: anywhere;
+        }
+
+        .fz-contact-form {
+            background: #202020;
+            border: 1px solid #383838;
+            border-radius: 15px;
+            padding: 35px;
+        }
+
+        .fz-contact-form h3 {
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+
+        .fz-contact-form h3 span { color: #F28C28; }
+
+        .fz-contact-form .form-control {
+            background: #151515;
+            border: 1px solid #444;
+            color: white;
+            border-radius: 8px;
+            padding: 14px 15px;
+        }
+
+        .fz-contact-form .form-control:focus {
+            background: #151515;
+            color: white;
+            border-color: #F28C28;
+            box-shadow: 0 0 0 3px rgba(242,140,40,.13);
+        }
+
+        .fz-contact-form .form-control::placeholder { color: #888; }
+
+        .fz-contact-form label {
+            color: #ddd;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .fz-send-btn {
+            width: 100%;
+            background: #F28C28;
+            border: none;
+            color: #111;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 800;
+            transition: .3s;
+        }
+
+        .fz-send-btn:hover {
+            background: #ffad52;
+            transform: translateY(-2px);
+        }
+
+        .fz-footer {
+            background: #191919;
+            border-top: 1px solid #333;
+            padding: 55px 0 20px;
+        }
+
+        .fz-footer h3 {
+            font-size: 25px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .fz-footer h3 span,
+        .fz-footer h5 { color: #F28C28; }
+
+        .fz-footer h5 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .fz-footer p,
+        .fz-footer a {
+            color: #aaa;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .fz-footer a {
+            display: block;
+            text-decoration: none;
+            margin-bottom: 6px;
+        }
+
+        .fz-footer a:hover { color: #F28C28; }
+
+        .fz-footer-bottom {
+            border-top: 1px solid #333;
+            text-align: center;
+            color: #888;
+            padding-top: 20px;
+            margin-top: 30px;
+            font-size: 12px;
+        }
+
+        @media(max-width: 991px) {
+            .fz-nav-links {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 14px;
+                margin-top: 18px;
+            }
+
+            .fz-nav-links a { margin-left: 0; font-size: 13px; }
+        }
+
+        @media(max-width: 600px) {
+            .fz-page-header h1 { font-size: 32px; }
+            .fz-title { font-size: 29px; }
+            .fz-contact-form { padding: 22px 16px; }
+        }
+    </style>
+</head>
+
+<body>
+{% include 'includes/navigation.html' %}
+
+<!-- FOODZONE COMMON NAVBAR START -->
+
+<nav class="fz-site-navbar">
+    <div class="container fz-nav-container">
+
+        <a href="/" class="fz-site-brand">
+            FOOD<span>ZONE</span>
+        </a>
+
+        <div class="fz-site-links">
+            <a href="/">Home</a>
+            <a href="/menu/">Menu</a>
+            <a href="/about/">About</a>
+            <a href="/book_table/">Book a Table</a>
+            <a href="/contact/" class="active">Contact</a>
+            <a href="{% url 'cart' %}">
+                <i class="fas fa-shopping-cart"></i>
+                Cart ({{ cart_item_count }})
+            </a>
+        </div>
+
+    </div>
+</nav>
+
+<!-- FOODZONE COMMON NAVBAR END -->
+
+<!-- Page Header -->
+<section class="fz-page-header">
+    <h1>Contact Us</h1>
+    <p>
+        <a href="/" class="text-white text-decoration-none">Home</a>
+        <i class="fas fa-chevron-right mx-2"></i>
+        Contact Us
+    </p>
+</section>
+
+<!-- Contact Section -->
+<section class="fz-contact-section">
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <p class="fz-label">WE WOULD LOVE TO HEAR FROM YOU</p>
+            <h2 class="fz-title">Get In Touch</h2>
+            <p class="text-white-50">
+                Have a question or feedback? Send a message to FoodZone.
+            </p>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="row g-4 mb-5">
+
+            <div class="col-lg-4 col-md-6">
+                <div class="fz-contact-info">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h5>Our Location</h5>
+                    <p>Contact us to know our location.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="fz-contact-info">
+                    <i class="fas fa-envelope"></i>
+                    <h5>Email Us</h5>
+                    <a href="mailto:nagarvegeta@gmail.com">
+                        nagarvegeta@gmail.com
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="fz-contact-info">
+                    <i class="fas fa-phone-alt"></i>
+                    <h5>Call Us</h5>
+                    <a href="tel:+919827355206">
+                        +91 9827355206
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Contact Form -->
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+
+                <div class="fz-contact-form">
+
+                    <h3>
+                        Send Us A <span>Message</span>
+                    </h3>
+
+                    <form method="post" action="/contact/">
+                        {% csrf_token %}
+
+                        <div class="row g-3">
+
+                            <div class="col-md-6">
+                                <label>Your Name</label>
+                                <input type="text" name="name"
+                                    class="form-control"
+                                    placeholder="Enter your name"
+                                    required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label>Your Email</label>
+                                <input type="email" name="email"
+                                    class="form-control"
+                                    placeholder="Enter your email"
+                                    required>
+                            </div>
+
+                            <div class="col-12">
+                                <label>Subject</label>
+                                <input type="text" name="subject"
+                                    class="form-control"
+                                    placeholder="What is this about?"
+                                    required>
+                            </div>
+
+                            <div class="col-12">
+                                <label>Your Message</label>
+                                <textarea name="message"
+                                    class="form-control"
+                                    rows="5"
+                                    placeholder="Write your message here..."
+                                    required></textarea>
+                            </div>
+
+                            <div class="col-12">
+                                <button type="submit" class="fz-send-btn">
+                                    SEND MESSAGE
+                                    <i class="fas fa-paper-plane ms-2"></i>
+                                </button>
+                            </div>
+
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="fz-footer">
+    <div class="container">
+        <div class="row g-4">
+
+            <div class="col-lg-4">
+                <h3>FOOD<span>ZONE</span></h3>
+                <p>
+                    Delicious food, quality ingredients and great taste.
+                    Discover your next favourite meal with FoodZone.
+                </p>
+            </div>
+
+            <div class="col-lg-4">
+                <h5>QUICK LINKS</h5>
+                <a href="/">Home</a>
+                <a href="/menu/">Menu</a>
+                <a href="/about/">About Us</a>
+                <a href="/book_table/">Book a Table</a>
+                <a href="/contact/">Contact Us</a>
+                <a href="{% url 'cart' %}">My Cart</a>
+            </div>
+
+            <div class="col-lg-4">
+                <h5>GET IN TOUCH</h5>
+                <p>
+                    <i class="fas fa-envelope text-warning me-2"></i>
+                    <a href="mailto:nagarvegeta@gmail.com" class="d-inline">
+                        nagarvegeta@gmail.com
+                    </a>
+                </p>
+                <p>
+                    <i class="fas fa-phone text-warning me-2"></i>
+                    <a href="tel:+919827355206" class="d-inline">
+                        +91 9827355206
+                    </a>
+                </p>
+            </div>
+
+        </div>
+
+        <div class="fz-footer-bottom">
+            © {% now "Y" %} FoodZone. All Rights Reserved.
+        </div>
+    </div>
+</footer>
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+<script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+<script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+<!-- Template Javascript -->
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

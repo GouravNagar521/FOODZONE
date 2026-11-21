@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Food | FoodZone</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f5f9;
+        }
+        .header {
+            background: #191919;
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header a {
+            color: white;
+            background: #f28c28;
+            padding: 10px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .container {
+            max-width: 650px;
+            margin: 35px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+        }
+        h2 { margin-top: 0; }
+        label {
+            display: block;
+            margin: 17px 0 7px;
+            font-weight: bold;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+        textarea { min-height: 100px; }
+        button {
+            margin-top: 22px;
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 6px;
+            background: #f28c28;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover { background: #dc7818; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h2>FoodZone | Add Food</h2>
+    <a href="{% url 'dashboard_food_items' %}">Back to Food Items</a>
+</div>
+
+<div class="container">
+    <h2>Add New Food Item</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>Food Name</label>
+        <input type="text" name="name" required>
+
+        <label>Description</label>
+        <textarea name="description" required></textarea>
+
+        <label>Price (₹)</label>
+        <input type="number" name="price" step="0.01" min="0.01" required>
+
+        <label>Category</label>
+        <select name="category" required>
+            <option value="">Select Category</option>
+            <option value="Fast Food">Fast Food</option>
+            <option value="Main Course">Main Course</option>
+            <option value="Beverages">Beverages</option>
+            <option value="Desserts">Desserts</option>
+        </select>
+
+        <label>Image Path</label>
+        <input type="text" name="image" placeholder="img/food-name.jpg">
+
+        <button type="submit">Add Food Item</button>
+    </form>
+</div>
+
+</body>
+</html>

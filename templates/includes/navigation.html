@@ -1,0 +1,81 @@
+{% load static %}
+
+<button class="fz-menu-trigger"
+        id="fzMenuTrigger"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="fzSideDrawer">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+
+<div class="fz-drawer-overlay" id="fzDrawerOverlay"></div>
+
+<aside class="fz-side-drawer" id="fzSideDrawer" aria-hidden="true">
+
+    <div class="fz-drawer-header">
+        <a href="/" class="fz-drawer-logo">FOOD<span>ZONE</span></a>
+
+        <button type="button" class="fz-drawer-close"
+                id="fzDrawerClose" aria-label="Close menu">
+            &times;
+        </button>
+    </div>
+
+    <div class="fz-drawer-profile">
+        {% if user.is_authenticated %}
+            <div class="fz-profile-avatar">
+                {{ user.username|first|upper }}
+            </div>
+            <div>
+                <strong>{{ user.username }}</strong>
+                <small>{{ user.email }}</small>
+            </div>
+        {% else %}
+            <div class="fz-profile-avatar">G</div>
+            <div>
+                <strong>Welcome to FoodZone</strong>
+                <small>Login to your account</small>
+                <div class="fz-auth-links">
+                    <a href="{% url 'login' %}">Login</a>
+                    <a href="{% url 'register' %}">Register</a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    <nav class="fz-drawer-nav">
+
+        <a href="/">Home</a>
+
+        <div class="fz-drawer-label">MENU CATEGORIES</div>
+
+        <a href="/menu/?category=Fast%20Food">Fast Food</a>
+        <a href="/menu/?category=Main%20Course">Main Course</a>
+        <a href="/menu/?category=Beverages">Beverages</a>
+        <a href="/menu/?category=Desserts">Desserts</a>
+
+        <div class="fz-drawer-divider"></div>
+
+        <a href="{% url 'cart' %}">My Cart</a>
+        <a href="{% url 'recently_viewed' %}">Recently Viewed Products</a>
+        <a href="{% url 'my_orders' %}">My Orders</a>
+
+        <div class="fz-drawer-divider"></div>
+
+        <a href="/about/">About Us</a>
+        <a href="/contact/">Contact Us</a>
+        <a href="/book_table/">Book a Table</a>
+
+        {% if user.is_authenticated %}
+            <form method="post" action="{% url 'logout' %}"
+                  class="fz-logout-form">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+        {% endif %}
+
+    </nav>
+</aside>
