@@ -223,63 +223,148 @@
             margin-bottom: 20px;
         }
 
-        @media(max-width: 768px) {
-            .cart-heading h1 {
-                font-size: 29px;
-            }
+      
+@media (max-width: 768px) {
+    .cart-heading {
+        padding: 30px 0 22px;
+    }
 
-            .cart-card {
-                padding: 13px;
-                gap: 13px;
-                flex-wrap: wrap;
-            }
+    .cart-heading h1 {
+        font-size: 28px;
+    }
 
-            .cart-food-img {
-                width: 90px;
-                height: 90px;
-            }
+    .cart-heading span {
+        display: block;
+        font-size: 13px;
+        padding: 0 10px;
+    }
 
-            .cart-food-info h3 {
-                font-size: 16px;
-            }
+    .cart-card {
+        padding: 13px;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
 
-            .item-total {
-                text-align: left;
-                margin-left: 103px;
-                min-width: auto;
-            }
+    .cart-food-img {
+        width: 76px;
+        height: 76px;
+    }
 
-            .summary-card {
-                position: static;
-                margin-top: 15px;
-            }
-        }
+    .cart-food-info {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .cart-food-info h3 {
+        font-size: 15px;
+        margin-bottom: 10px;
+        overflow-wrap: anywhere;
+    }
+
+    .price-row {
+        font-size: 12px;
+        gap: 8px;
+    }
+
+    .price-row span:first-child {
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .price-row span:last-child {
+        flex-shrink: 0;
+    }
+
+    .final-price {
+        font-size: 14px;
+    }
+
+    .quantity-control {
+        gap: 10px;
+    }
+
+    .quantity-control button {
+        width: 34px;
+        height: 34px;
+    }
+
+    .item-total {
+        flex: 0 0 calc(100% - 86px);
+        box-sizing: border-box;
+        text-align: left;
+        margin-left: 86px;
+        min-width: 0;
+        font-size: 17px;
+    }
+
+    .remove-btn {
+        padding: 8px 11px;
+    }
+
+    .summary-card {
+        position: static;
+        margin-top: 15px;
+        padding: 20px 16px;
+    }
+
+    .summary-card h3 {
+        font-size: 19px;
+        margin-bottom: 20px;
+    }
+
+    .summary-row {
+        font-size: 13px;
+        gap: 8px;
+    }
+
+    .summary-row span:last-child {
+        text-align: right;
+    }
+
+    .summary-total {
+        font-size: 18px;
+    }
+
+    .checkout-btn {
+        font-size: 14px;
+        padding: 14px 10px;
+    }
+
+    .empty-cart {
+        padding: 45px 15px;
+    }
+
+    .empty-cart h2 {
+        font-size: 23px;
+    }
+}
+
+@media (max-width: 380px) {
+    .cart-heading h1 {
+        font-size: 24px;
+    }
+
+    .cart-food-img {
+        width: 68px;
+        height: 68px;
+    }
+
+    .item-total {
+        margin-left: 78px;
+        flex-basis: calc(100% - 78px);
+    }
+
+    .cart-food-info h3 {
+        font-size: 14px;
+    }
+}
+
     </style>
 </head>
 
 <body>
-
-<!-- NAVBAR -->
-<nav class="fz-site-navbar">
-    <div class="container fz-nav-container">
-        <a href="/" class="fz-site-brand">
-            FOOD<span>ZONE</span>
-        </a>
-
-        <div class="fz-site-links">
-            <a href="/">Home</a>
-            <a href="/menu/">Menu</a>
-            <a href="/about/">About</a>
-            <a href="/book_table/">Book a Table</a>
-            <a href="/contact/">Contact</a>
-            <a href="{% url 'cart' %}" class="active">
-                <i class="fas fa-shopping-cart"></i>
-                Cart ({{ cart_item_count }})
-            </a>
-        </div>
-    </div>
-</nav>
-
+{% include 'includes/navigation.html' %}
 <div class="container pb-5">
 
     <div class="cart-heading text-center">
@@ -450,6 +535,16 @@
 <footer class="text-center py-4" style="background:#191919; color:#888;">
     © {% now "Y" %} FoodZone. All Rights Reserved.
 </footer>
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+<script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+<script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+<!-- Template Javascript -->
+<script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

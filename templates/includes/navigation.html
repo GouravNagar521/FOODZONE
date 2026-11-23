@@ -10,9 +10,17 @@
     <span></span>
     <span></span>
 </button>
+<!-- Floating Cart Button -->
+<a href="{% url 'cart' %}" class="fz-floating-cart"
+   aria-label="Open shopping cart">
+    <span class="fz-cart-icon">🛒</span>
+    <span>Cart</span>
+    <span class="fz-cart-count" data-cart-count>
+        {{ cart_item_count|default:0 }}
+    </span>
+</a>
 
 <div class="fz-drawer-overlay" id="fzDrawerOverlay"></div>
-
 <aside class="fz-side-drawer" id="fzSideDrawer" aria-hidden="true">
 
     <div class="fz-drawer-header">

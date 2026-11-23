@@ -230,34 +230,7 @@
 </head>
 
 <body>
-{% include 'includes/navigation.html' %}
-
-<!-- FOODZONE COMMON NAVBAR START -->
-
-<nav class="fz-site-navbar">
-    <div class="container fz-nav-container">
-
-        <a href="/" class="fz-site-brand">
-            FOOD<span>ZONE</span>
-        </a>
-
-        <div class="fz-site-links">
-            <a href="/">Home</a>
-            <a href="/menu/">Menu</a>
-            <a href="/about/">About</a>
-            <a href="/book_table/">Book a Table</a>
-            <a href="/contact/" class="active">Contact</a>
-            <a href="{% url 'cart' %}">
-                <i class="fas fa-shopping-cart"></i>
-                Cart ({{ cart_item_count }})
-            </a>
-        </div>
-
-    </div>
-</nav>
-
-<!-- FOODZONE COMMON NAVBAR END -->
-
+{% include 'includes/navigation.html' %}       
 <!-- Page Header -->
 <section class="fz-page-header">
     <h1>Contact Us</h1>
